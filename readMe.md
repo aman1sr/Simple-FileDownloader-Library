@@ -46,14 +46,17 @@ Introducing our cutting-edge News MVVM app, meticulously crafted with the latest
 ```
 
 <p align="center">
-<img alt="main_screen" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsHome.jpeg" width="360"  height="640"> &nbsp;&nbsp;&nbsp;&nbsp;
-<img alt="top-top_headline" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsTopHeadline.jpeg" width="360"  height="640" marginLeft="20">
+    <div style="display: flex; justify-content: center;">
+        <img alt="main_screen" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsHome.jpeg" width="360"  height="640"> &nbsp;&nbsp;&nbsp;&nbsp;
+        <img alt="top-top_headline" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsTopHeadline.jpeg" width="360"  height="640">
+    </div>
 </p>
-
 <p align="center">
-<img alt="search1.1" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsSearch1.1.jpeg" width="360"  height="640"  marginLeft="20">
-<img alt="search2" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsSearch2.jpeg" width="360"  height="640"  marginLeft="20">
-<img alt="search2.2" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsSearch2.2.jpeg" width="360"  height="640"  marginLeft="20">
+    <div style="display: flex; justify-content: center;">
+        <img alt="search1.1" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsSearch1.1.jpeg" width="360"  height="640"> &nbsp;&nbsp;&nbsp;&nbsp;
+        <img alt="search2" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsSearch2.jpeg" width="360"  height="640"> &nbsp;&nbsp;&nbsp;&nbsp;
+        <img alt="search2.2" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsSearch2.2.jpeg" width="360"  height="640">
+    </div>
 </p>
 
 
