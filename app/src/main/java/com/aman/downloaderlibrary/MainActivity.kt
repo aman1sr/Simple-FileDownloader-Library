@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             onPause = {
                 binding.textView.text = "onPause"
             },
-            onComplete = { 1
+            onComplete = {
                 binding.textView.text = "onCompleted"
                 binding.progressBar.visibility = View.GONE
             },
