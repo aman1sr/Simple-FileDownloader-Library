@@ -26,9 +26,8 @@ class MainActivity : AppCompatActivity() {
             .tag("someTag")
             .build()            // created a DownloadRequest obj
 
-        downloader.enqueue(request,
+val downloadID =     downloader.enqueue(request,
             onStart = {
-                binding.textView.text = "onStart"
                 binding.progressBar.visibility = View.VISIBLE
             },
             onProgress = {
@@ -38,13 +37,26 @@ class MainActivity : AppCompatActivity() {
                 binding.textView.text = "onPause"
             },
             onComplete = {
-                binding.textView.text = "onCompleted"
+                binding.textView.text = "Hurray!! Download Completed"
                 binding.progressBar.visibility = View.GONE
             },
             onError = {
                 binding.textView.text = it
             }
             )
+
+        binding.btnPause.setOnClickListener {
+            if (!request.isDownloadPause) {
+                downloader.pause(downloadID)
+                Toast.makeText(this, "Download Pause", Toast.LENGTH_SHORT).show()
+            }
+        }
+        binding.btnResume.setOnClickListener {
+            if (request.isDownloadPause) {
+                downloader.resume(downloadID)
+                Toast.makeText(this, "Download Resume", Toast.LENGTH_SHORT).show()
+            }
+        }
 
 
     }

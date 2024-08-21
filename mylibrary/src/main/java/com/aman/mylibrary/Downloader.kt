@@ -30,6 +30,7 @@ class Downloader private constructor(private val config: DownloadConfig){
         req.onPause = onPause
         req.onCompleted = onComplete
         req.onError = onError
+
         return reqQueue.enqueue(req)
     }
     fun pause(id: Int) {

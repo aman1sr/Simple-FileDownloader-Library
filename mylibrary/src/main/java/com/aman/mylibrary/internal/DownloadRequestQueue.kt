@@ -9,11 +9,14 @@ class DownloadRequestQueue(private val dispatcher: DownloadDispatcher) {
     }
     fun pause(id: Int) {
         idRequestMap[id]?.let {
+            it.isDownloadPause = true
             dispatcher.cancel(it)
         }
     }
+
     fun resume(id: Int) {
         idRequestMap[id]?.let {
+            it.isDownloadPause = false
             dispatcher.enqueue(it)
         }
     }

@@ -14,6 +14,8 @@ class DownloadRequest private constructor(
 ){
     internal val totalBytes: Long =0
     internal val downloadedBytes: Long =0
+    internal var downloadProgress: Int = 0
+     var isDownloadPause: Boolean = false         // used for to check Resume button click event,  not making it internal becuase wanted it to access form MainActivity
     internal lateinit var job: Job
     internal lateinit var onStart: () -> Unit
     internal lateinit var onProgress: (value: Int) -> Unit

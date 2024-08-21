@@ -18,9 +18,12 @@ class DownloadTask(private val req: DownloadRequest, private val httpClient: Htt
             // dummy code for downloading file
             onStart()
             httpClient.connect(req)
-            for (i in 1..100) {
-                delay(100)
+
+            val downloadStartByte = req.downloadProgress
+            for (i in downloadStartByte..100) {
+                delay(1000)
                 onProgress(i)
+                req.downloadProgress  = i
             }
             onComplete
         }

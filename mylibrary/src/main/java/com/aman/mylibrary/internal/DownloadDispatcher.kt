@@ -41,6 +41,9 @@ class DownloadDispatcher(private val httpClient: HttpClient) {
     fun cancel(request: DownloadRequest) {
         request.job.cancel()
     }
+//    fun pause(request: DownloadRequest){
+//        request.downloadProgress
+//    }
     fun cancellAll() {
         scope.cancel()
     }
