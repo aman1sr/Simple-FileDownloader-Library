@@ -11,10 +11,12 @@ class DownloadDispatcher(private val httpClient: HttpClient) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     fun enqueue(req: DownloadRequest): Int {
-        val job = scope.launch {
-            execute(req)
+        if (req.isDownloadStart) {
+            val job = scope.launch {
+                execute(req)
+            }
+            req.job = job
         }
-        req.job = job
         return req.downloadId
     }
     private suspend fun execute(request: DownloadRequest) {

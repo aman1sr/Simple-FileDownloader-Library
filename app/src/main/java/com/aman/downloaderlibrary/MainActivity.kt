@@ -15,20 +15,24 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-       val downloader = (applicationContext as MyApplication).downloader
-        if(downloader != null) Toast.makeText(this, "downoader obj created", Toast.LENGTH_SHORT).show()
+        val downloader = (applicationContext as MyApplication).downloader
+        if (downloader != null) Toast.makeText(this, "downoader obj created", Toast.LENGTH_SHORT)
+            .show()
 
-        val request = downloader.newReqBuilder("someUrl",
+        val request = downloader.newReqBuilder(
+            "someUrl",
             "someDirPath",
-            "someFileName")
+            "someFileName"
+        )
             .readTimeOut(10000)
             .connectTimeout(10000)
             .tag("someTag")
             .build()            // created a DownloadRequest obj
 
-val downloadID =     downloader.enqueue(request,
+        val downloadID = downloader.enqueue(request,
             onStart = {
                 binding.progressBar.visibility = View.VISIBLE
+                Toast.makeText(this, "Download Started", Toast.LENGTH_SHORT).show()
             },
             onProgress = {
                 binding.txtProgress.text = "progress: ${it.toString()} %"
@@ -43,8 +47,12 @@ val downloadID =     downloader.enqueue(request,
             onError = {
                 binding.textView.text = it
             }
-            )
-
+        )
+        binding.btnStart.setOnClickListener {
+            if (!request.isDownloadStart) {
+                downloader.start(downloadID)
+            }
+        }
         binding.btnPause.setOnClickListener {
             if (!request.isDownloadPause) {
                 downloader.pause(downloadID)

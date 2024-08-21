@@ -33,6 +33,9 @@ class Downloader private constructor(private val config: DownloadConfig){
 
         return reqQueue.enqueue(req)
     }
+    fun start(id: Int){
+        reqQueue.start(id)
+    }
     fun pause(id: Int) {
         reqQueue.pause(id)
     }

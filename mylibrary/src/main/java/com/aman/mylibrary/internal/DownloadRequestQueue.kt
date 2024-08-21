@@ -7,6 +7,12 @@ class DownloadRequestQueue(private val dispatcher: DownloadDispatcher) {
         idRequestMap[request.downloadId] = request
         return dispatcher.enqueue(request)
     }
+    fun start(id: Int){
+        idRequestMap[id]?.let {
+            it.isDownloadStart = true
+            dispatcher.enqueue(it)
+        }
+    }
     fun pause(id: Int) {
         idRequestMap[id]?.let {
             it.isDownloadPause = true
