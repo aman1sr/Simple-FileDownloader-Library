@@ -20,7 +20,9 @@ class DownloadRequest private constructor(
     internal lateinit var job: Job
     internal lateinit var onStart: () -> Unit
     internal lateinit var onProgress: (value: Int) -> Unit
+    internal lateinit var onResume: () -> Unit
     internal lateinit var onPause: () -> Unit
+    internal lateinit var onCancel: () -> Unit
     internal lateinit var onCompleted: () -> Unit
     internal lateinit var onError: (error: String) -> Unit
 

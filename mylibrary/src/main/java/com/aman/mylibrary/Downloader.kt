@@ -21,13 +21,17 @@ class Downloader private constructor(private val config: DownloadConfig){
         req: DownloadRequest,
         onStart: () -> Unit = {},
         onProgress: (value: Int) -> Unit = { _ -> },
+        onResume: () -> Unit,
         onPause: () -> Unit = {},
+        onCancel: () -> Unit,
         onComplete: () -> Unit = {},
         onError : (error: String) -> Unit = { _ -> }
     ): Int{
         req.onStart = onStart
         req.onProgress = onProgress
+        req.onResume = onResume
         req.onPause = onPause
+        req.onCancel = onCancel
         req.onCompleted = onComplete
         req.onError = onError
 

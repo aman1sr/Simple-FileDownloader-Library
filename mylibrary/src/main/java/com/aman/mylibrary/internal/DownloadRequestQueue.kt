@@ -17,6 +17,7 @@ class DownloadRequestQueue(private val dispatcher: DownloadDispatcher) {
         idRequestMap[id]?.let {
             it.isDownloadPause = true
             dispatcher.cancel(it)
+            it.onPause.invoke()
         }
     }
 
@@ -24,13 +25,16 @@ class DownloadRequestQueue(private val dispatcher: DownloadDispatcher) {
         idRequestMap[id]?.let {
             it.isDownloadPause = false
             dispatcher.enqueue(it)
+            it.onResume.invoke()
         }
     }
     fun cancel(id: Int){
         idRequestMap[id]?.let {
             dispatcher.cancel(it)
+            it.onCancel.invoke()
         }
         idRequestMap.remove(id)
+
     }
     fun cancel(tag: String) {
         val requuestWithTag = idRequestMap.values.filter {

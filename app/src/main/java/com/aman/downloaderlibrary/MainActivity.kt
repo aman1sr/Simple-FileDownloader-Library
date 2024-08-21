@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.aman.downloaderlibrary.databinding.ActivityMainBinding
-import com.aman.mylibrary.Downloader
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -39,10 +38,22 @@ class MainActivity : AppCompatActivity() {
             },
             onPause = {
                 binding.textView.text = "onPause"
+                binding.progressBar.visibility = View.INVISIBLE
+                Toast.makeText(this, "Download Pause", Toast.LENGTH_SHORT).show()
+            },
+            onResume = {
+                binding.progressBar.visibility = View.VISIBLE
+                Toast.makeText(this, "Download Resume", Toast.LENGTH_SHORT).show()
+            },
+            onCancel = {
+                binding.textView.text = "Download Cancelled"
+                binding.progressBar.visibility = View.INVISIBLE
+                Toast.makeText(this, "Download Cancelled!!", Toast.LENGTH_SHORT).show()
+
             },
             onComplete = {
                 binding.textView.text = "Hurray!! Download Completed"
-                binding.progressBar.visibility = View.GONE
+                binding.progressBar.visibility = View.INVISIBLE
             },
             onError = {
                 binding.textView.text = it
@@ -56,15 +67,18 @@ class MainActivity : AppCompatActivity() {
         binding.btnPause.setOnClickListener {
             if (!request.isDownloadPause) {
                 downloader.pause(downloadID)
-                Toast.makeText(this, "Download Pause", Toast.LENGTH_SHORT).show()
             }
         }
         binding.btnResume.setOnClickListener {
             if (request.isDownloadPause) {
                 downloader.resume(downloadID)
-                Toast.makeText(this, "Download Resume", Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.btnCancel.setOnClickListener {
+            downloader.cancel(downloadID)
+        }
+
 
 
     }
