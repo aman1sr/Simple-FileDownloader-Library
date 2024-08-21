@@ -1,62 +1,43 @@
-# NewsApp-MVVM-Architecture
-Introducing our cutting-edge News MVVM app, meticulously crafted with the latest technologies recommended by Google. This app is designed to deliver a seamless news reading experience, whether you're online or offline. Here’s a sneak peek into its features and architecture:
+# Simple File Downloader Library
+A Sample Low Level Design of a file downloader library for Android with pause and resume support, following best pratices.
 
 ### Major Highlights:
-- **MVVM Architecture** : Built using the Model-View-ViewModel architecture, ensuring a clean separation of concerns and making the app highly maintainable and testable.
-- **Offline-First**: Prioritizes offline access with a single source of truth, ensuring you can read the news even without an internet connection.
-- **Room Database**: Utilizes Room for efficient local data storage and retrieval.
-- **Dependency Injection with Hilt**: Implements Hilt for managing dependencies, reducing boilerplate code and improving scalability.
-- **Pagination Library**: Seamlessly handles data pagination, providing a smooth scrolling experience through endless news articles.
-- **Coroutines and Flow API**: Leverages Kotlin Coroutines and Flow API for efficient and smooth data processing pipelines.
-- **Comprehensive Unit Testing**: Ensures robustness with extensive unit tests covering all critical components.
+- Low Level Design of a File Downloader library having component like Download Request Builder, Request queue, Download Dispatcher , HttpClient and Download Task making Library higly customizable.
+- Supports pause and resume while downloading a file.
+- Supports Custom HttpClient for a Download Request.
+- Followed best pratices 
+  - Builder Pattern:used to create Download Request Obj with few parameter compulsory & few are optional
+  - Factory pattern:  used to create Downloader obj
+  - use of interface: to pass differrent implementation of future usecase scenarios
 
-## The Complete Project Folder Structure
+## The Complete Library Folder Structure
 ```
-├── NewsApplication.kt
-├── data
-│   ├── api
-│   ├── local
-│   ├── model
-│   └── repository
-├── di
-│   ├── component
-│   ├── module
-│   ├── qualifiers.kt
-│   └── scopes.kt
-├── ui
-│   ├── MainActivity.kt
-│   ├── base
-│   ├── country
-│   ├── language
-│   ├── newsListScreen
-│   ├── pagination
-│   ├── search
-│   ├── sources
-│   └── topheadline
-└── utils
-    ├── AppConstant.kt
-    ├── DispatcherProvider.kt
-    ├── Extentions.kt
-    ├── NetworkHelper.kt
-    ├── Resource.kt
-    ├── Status.kt
-    ├── TypeAliases.kt
-    └── network
+├── Downloader
+├── DownloadConfig
+├── Downloader
+├── httpclient
+│   ├── DefaultHttpClient
+│   ├── HttpClient
+├── internals
+│   ├── DownloadDispatcher
+│   ├── DownloadRequest
+│   ├── DownloadRequestQueue
+│   └── DownloadTask
+├── utils
+│   ├── Utils
+
 
 ```
 
 <p align="center">
-    <div style="display: flex; justify-content: center;">
-        <img alt="main_screen" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsHome.jpeg" width="360"  height="640"> &nbsp;&nbsp;&nbsp;&nbsp;
-        <img alt="top-top_headline" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsTopHeadline.jpeg" width="360"  height="640">
-    </div>
+<img alt="main_screen" src="https://github.com/aman1sr/Simple-FileDownloader-Library/blob/master/app/screenshot/1.jpeg?raw=true" width="360"  height="640"> &nbsp;&nbsp;&nbsp;&nbsp;
+<img alt="top-top_headline" src="https://github.com/aman1sr/Simple-FileDownloader-Library/blob/master/app/screenshot/2.jpeg?raw=true" width="360"  height="640" marginLeft="20">
 </p>
+
 <p align="center">
-    <div style="display: flex; justify-content: center;">
-        <img alt="search1.1" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsSearch1.1.jpeg" width="360"  height="640"> &nbsp;&nbsp;&nbsp;&nbsp;
-        <img alt="search2" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsSearch2.jpeg" width="360"  height="640"> &nbsp;&nbsp;&nbsp;&nbsp;
-        <img alt="search2.2" src="https://github.com/aman1sr/NewsApp-MVVM-Architecture/blob/master/app/screenshot/newsSearch2.2.jpeg" width="360"  height="640">
-    </div>
+<img alt="search1.1" src="https://github.com/aman1sr/Simple-FileDownloader-Library/blob/master/app/screenshot/3.jpeg?raw=true" width="360"  height="640"  marginLeft="20">
+<img alt="search2" src="https://github.com/aman1sr/Simple-FileDownloader-Library/blob/master/app/screenshot/4.jpeg?raw=true" width="360"  height="640"  marginLeft="20">
+
 </p>
 
 
